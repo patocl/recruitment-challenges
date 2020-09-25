@@ -2,7 +2,19 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Core\Infrastructure\Serializaers\**" />
+    <Compile Remove="Core\Infrastructure\Sources\**" />
+    <Compile Remove="Core\Normalizer\**" />
+    <EmbeddedResource Remove="Core\Infrastructure\Serializaers\**" />
+    <EmbeddedResource Remove="Core\Infrastructure\Sources\**" />
+    <EmbeddedResource Remove="Core\Normalizer\**" />
+    <None Remove="Core\Infrastructure\Serializaers\**" />
+    <None Remove="Core\Infrastructure\Sources\**" />
+    <None Remove="Core\Normalizer\**" />
+  </ItemGroup>
 
 </Project>

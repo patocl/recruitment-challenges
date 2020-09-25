@@ -8,6 +8,8 @@ using System.IO;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Refactoring.FraudDetection.Core.Infrastructure.Repository;
+using Refactoring.FraudDetection.Models.Contracts;
 
 namespace Refactoring.FraudDetection.Tests
 {
@@ -58,11 +60,11 @@ namespace Refactoring.FraudDetection.Tests
             result.Should().HaveCount(2, "The result should contains the number of lines of the file");
         }
 
-        private static List<FraudRadar.FraudResult> ExecuteTest(string filePath)
+        private static IList<IFraudResult> ExecuteTest(string filePath)
         {
             var fraudRadar = new FraudRadar();
-
-            return fraudRadar.Check(filePath).ToList();
+            var fileReader = new FileReader(filePath);
+            return fraudRadar.Check(fileReader).ToList();
         }
     }
 }
